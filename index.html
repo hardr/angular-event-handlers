@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="eventHandlerApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Event Handlers</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Event Handler Exercises</h1>
+      </header>
+      <main>
+        <section ng-controller="ReverseCtrl as reverseController">
+          <h5>Word Reverser</h5>
+          <div class="row">
+            <div class="col s12 m6 input-field">
+              <input type="text" placeholder="insert text" ng-model="reverseController.word">
+            </div>
+          </div>
+          <div class="row" ng-show="reverseController.word.length > 0">
+            <div class="col s12 m6">
+              <p>Palindrominized: {{reverseController.word}} | {{reverseController.reversedWord}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s3 m2">
+              <button class="waves-effect waves-light btn" ng-click="reverseController.reverseWord(reverseController.word)"><i class="material-icons">swap_horiz</i></button>
+            </div>
+          </div>
+        </section>
+        <section ng-controller="PingPongCtrl as pongController">
+          <h5>Ping Pong Scoreboard</h5>
+          <div class="row">
+            <div class="score1 col s6 m6" ng-class="">
+              <p>Player 1</p>
+              <div>Wins: {{pongController.winsOne}}</div>
+              <div ng-click="pongController.addPoint('one')">{{pongController.scoreOne}}</div>
+              <div ng-show="pongController.serve">serve</div>
+            </div>
+            <div class="score2 col s6 m6">
+              <p>Player 2</p>
+              <div>Wins: {{pongController.winsTwo}}</div>
+              <div ng-click="pongController.addPoint('two')">{{pongController.scoreTwo}}</div>
+              <div ng-hide="pongController.serve">serve</div>
+            </div>
+          </div>
+            <button class="waves-effect waves-light btn" ng-click="pongController.reset()"  ng-disabled="!pongController.gameOver"><i class="material-icons">settings_backup_restore</i></button>
+        </section>
+      </main>
+    </div>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+  </body>
+</html>
