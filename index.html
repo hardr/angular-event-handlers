@@ -34,16 +34,16 @@
         <section ng-controller="PingPongCtrl as pongController">
           <h5>Ping Pong Scoreboard</h5>
           <div class="row">
-            <div class="score1 col s6 m6" ng-class="">
+            <div class="score1 col s6 m6" ng-class="{winner: pongController.scoreOne === 11}">
               <p>Player 1</p>
               <div>Wins: {{pongController.winsOne}}</div>
-              <div ng-click="pongController.addPoint('one')">{{pongController.scoreOne}}</div>
+              <div ng-click="pongController.addPoint('one')">Score: {{pongController.scoreOne}}</div>
               <div ng-show="pongController.serve">serve</div>
             </div>
-            <div class="score2 col s6 m6">
+            <div class="score2 col s6 m6" ng-class="{winner: pongController.scoreTwo === 11}">
               <p>Player 2</p>
               <div>Wins: {{pongController.winsTwo}}</div>
-              <div ng-click="pongController.addPoint('two')">{{pongController.scoreTwo}}</div>
+              <div ng-click="pongController.addPoint('two')">Score: {{pongController.scoreTwo}}</div>
               <div ng-hide="pongController.serve">serve</div>
             </div>
           </div>

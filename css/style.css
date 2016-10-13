@@ -29,3 +29,7 @@
 .delete {
   margin-left: 15px;
 }
+
+.winner {
+  border: 3px solid green;
+}
